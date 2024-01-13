@@ -146,9 +146,15 @@
                 success: function (data){
                     alert("수정 되었습니다.")
                     window.location.href="/template.jsp?pageGroup=employee&page=list";
+                },
+                error: function (err) {
+                    alert( "실패" );
+                    console.error( err )
+                    console.log( err.responeText )
                 }
 
             })
+            return false;
         }
         else {
             alert("수정 취소 되었습니다.")

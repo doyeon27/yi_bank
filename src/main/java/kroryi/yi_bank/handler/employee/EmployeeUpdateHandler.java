@@ -67,9 +67,7 @@ public class EmployeeUpdateHandler extends HttpServlet {
         } else {
             out.print(gson.toJson("수정실패"));
         }
-
         out.flush();
     }
-
 }
 

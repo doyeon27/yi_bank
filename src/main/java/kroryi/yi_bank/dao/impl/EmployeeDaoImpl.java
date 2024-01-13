@@ -175,16 +175,12 @@ public class EmployeeDaoImpl implements EmployeeDao {
                     result.setPic(rs.getString("pic"));
 
                     list.add(result);
-
                 }
-
             }
             catch (Exception e){
                 e.printStackTrace();
             }
     }
         return (ArrayList<Employee>) list;
-
     }
-
 }
