@@ -43,6 +43,16 @@
                             </jsp:include>
                         </c:when>
 
+                        <c:when test="${not empty page and page eq 'add'}">
+                            <jsp:include page="/view/${pageGroup}/${pageGroup}_${page}.jsp">
+                                <jsp:param name="no" value="${no}"/>
+                            </jsp:include>
+                        </c:when>
+
+
+
+
+
                         <c:otherwise>
                             <jsp:include page="/view/${pageGroup}/${pageGroup}_list.jsp"/>
                         </c:otherwise>

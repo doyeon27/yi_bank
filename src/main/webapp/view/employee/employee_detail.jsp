@@ -8,6 +8,66 @@
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    #employeeDetail {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+
+    button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+        p {
+            text-align: center;
+            color: #777;
+        }
+
+        /* 중앙 정렬 스타일 추가 */
+        #buttonContainer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</head>
 
 <body>
 
@@ -17,8 +77,12 @@
 
 <div id="employeeDetail"></div>
 
-<button id="mod">수정</button>
-<button id="del">삭제</button>
+
+<%--중앙정렬한거 추가--%>
+<div id="buttonContainer">
+        <button id="mod">수정</button>
+        <button id="del">삭제</button>
+    </div>
 
 <script>
 
