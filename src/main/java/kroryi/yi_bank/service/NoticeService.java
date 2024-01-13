@@ -2,6 +2,7 @@ package kroryi.yi_bank.service;
 
 import kroryi.yi_bank.dao.NoticeDao;
 import kroryi.yi_bank.dao.impl.NoticeDaoImpl;
+import kroryi.yi_bank.dto.Employee;
 import kroryi.yi_bank.dto.Notice;
 
 import java.sql.SQLException;
@@ -31,6 +32,11 @@ public class NoticeService {
 	public int removeNotice(int notice) throws SQLException {
 		return dao.deleteNotice(notice);
 	}
+
+
+
+
+
 
 
 

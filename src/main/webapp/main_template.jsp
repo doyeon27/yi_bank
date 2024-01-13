@@ -95,7 +95,7 @@
             <li><a href="/main/main.do">Home</a></li>
             <li><a href="/main/notice.do">공지사항</a></li>
             <li><a href="/view/notice/notice_list.jsp">공지사항(임시)</a></li>
-            <li><a href="#">사원관리</a></li>
+            <li><a href="/view/employee/employee_list.jsp">직원 관리</a></li>
             <li><a href="#">사원 권한관리</a></li>
         </ul>
     </div>

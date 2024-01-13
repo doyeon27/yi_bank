@@ -6,7 +6,8 @@
 </head>
 <body>
 <script>
-    location.href = "${pageContext.request.contextPath}/main/main.do";
+    <%--location.href = "${pageContext.request.contextPath}/template.jsp";--%>
+    location.href = "${pageContext.request.contextPath}/login.jsp";
 </script>
 </body>
 </html>

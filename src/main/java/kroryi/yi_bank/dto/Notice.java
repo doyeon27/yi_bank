@@ -97,4 +97,6 @@ public class Notice {
 
 	public void setTitle(String title) {
 	}
+
+
 }

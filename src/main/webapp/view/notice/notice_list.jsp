@@ -13,8 +13,18 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<%--    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">--%>
 
     <style>
+        #h1_title{
+            margin-top: -78px;
+        }
+
+        #listAddBtn{
+            margin-top: -31px;
+        }
         #notice {
             width: 816px;
             height: 500px;
@@ -49,15 +59,17 @@
         }
 
         #notice ul {
-            margin-top: 10px;
+            margin-top: 66px;
         }
 
         /*수정한거*/
         #notice ul li {
-            height: 30px;
-            padding-top: 30px;
+            height: 73px;
+            padding-top: 10px;
             border-bottom: 1px solid #ccc; /* 각 리스트 아이템에 회색 밑줄 추가 */
             padding-bottom: 5px; /* 밑줄과 텍스트 사이의 간격 조정 */
+            display: flex;
+            align-items: center;
         }
 
         #notice span {
@@ -70,8 +82,8 @@
             text-align: center;
         }
 
-        #notice span#subject {
-            width: 366px;
+        #noticeList span#subject {
+            width: 340px;
         }
 
         #notice span#subject a {
@@ -88,39 +100,31 @@
             text-align: right;
         }
 
-        /*#listAddBtn {*/
-        /*    clear: both; !* 추가된 버튼 아래로 내려가도록 *!*/
-        /*    margin-top: 20px;*/
-        /*    position: absolute;*/
-        /*    bottom: 50px;*/
-        /*}*/
+        #notice title {
+            /*border: 1px solid red;*/
+        }
 
-        /*#listAddBtn button {*/
-        /*    display: block; !* 블록 요소로 설정해서 세로 정렬 되도록 *!*/
-        /*    float: left;*/
-        /*}*/
+        #noticeList.list-group{
+            padding-top: 0px;
+            padding-bottom: 30px;
+        }
 
     </style>
 </head>
 
 <body>
-<div id="notice">
-    <h1>공지사항</h1>
-    <ul id="noticeList">
-
+<%--class="container mt-5 border"--%>
+<div id="notice" >
+<%--<div id="notice">--%>
+    <h1 id="h1_title"><span id="noticeTilte">공지사항</span></h1>
+    <ul id="noticeList" class="list-group">
+<%--        list-group--%>
     </ul>
-
-
-
-
-    <button id="listAddBtn">추가</button>
+    <button id="listAddBtn" class="btn btn-info">추가</button>
 </div>
 
 
 <script>
-
-
-
     // AJax 기본 베이스 코드
     $(document).ready(function () {
         $.ajax({
@@ -132,12 +136,12 @@
                     let userList = $('#noticeList');
                     data.forEach(function (item) {
                         let listItem = `<li>
-                            <span id="no"> ${item.no} </span>
-                            <span id="subject"> ${item.subject} </span>
-                            <span id="writer"> ${item.writer} </span>
-                            <span id="date"> ${item.writeDate} </span>
-                            <button id="updbtn"> 수정 </button>
-                            <button id="delbtn"> 삭제 </button>
+                            <span id="no" class="justify-content-between align-items-center mr-auto"> ${item.no} </span>
+                            <span id="subject" ><a href='?pageGroup=notice&page=detail&no=${item.no}'>${item.subject}</a></span>
+                            <span id="writer" class="badge badge-primary badge-pill"> ${item.writer} </span>
+                            <span id="date" class="badge badge-secondary badge-pill float-rigtht"> ${item.writeDate} </span>
+                            <button id="updbtn" class="badge badge-pill badge-success mx-1"> 수정 </button>
+                            <button id="delbtn" class="badge badge-pill badge-danger mx-1"> 삭제 </button>
                             </li>
                         `;
 
@@ -190,17 +194,17 @@
 
                 let noticeNo = $(this).closest('li').find('#no').text();
 
-                window.location.href = '/view/notice/notice_update.jsp?noticeNo='+noticeNo;
-
                 console.log(noticeNo);
                 let confirmed = confirm("수정 하시겠습니까?");
                 if (confirmed){
+                    window.location.href = '/view/notice/notice_update.jsp?noticeNo='+noticeNo;
                     $.ajax({
                         url: "/main/getNotice.do",
                         type: 'POST',
                         data: {noticeNo: noticeNo},
                         success: function (response) {
                             if (response === 'success') {
+
                             } else {
                             }
                         },
@@ -209,13 +213,10 @@
                     });
                 }else {
                     alert("취소 되었습니다.")
-                    window.location.href = "/main/main.do";
+                    // window.location.href = "/main/main.do";
                 }
             });
         });
-
-
-
 
 
         // 추가 버튼을 누르면 notice_add.jsp 로 가게 해주는 코드

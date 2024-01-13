@@ -24,10 +24,7 @@
     <button id="addNoticeBtn" type="button">공지사항 추가</button>
 </form>
 
-<!-- 기존 HTML 내용 -->
-<!-- ... -->
 
-<!-- 자바스크립트 코드 -->
 <script>
     $(document).ready(function () {
         $('#addNoticeBtn').on('click', function (e) {
@@ -58,7 +55,7 @@
                     alert(response); // 성공 메시지 알림
                     // 추가한 후에 공지사항 리스트 갱신하는 등의 작업 수행
                     // ...
-                    window.location.href = "/main/main.do";
+                    window.location.href = "/template.jsp?pageGroup=notice&page=list";
                 },
                 error: function (xhr, status, error) {
                     // 실패했을 때의 처리
