@@ -332,8 +332,9 @@
         });
 
         $('#listAddBtn').on('click', function () {
-            window.location.href = '/view/notice/notice_add.jsp';
-            // window.location.href = 'template.jsp?pageGroup=notice&page=add&noticeNo=' + noticeNo;
+            // window.location.href = '/view/notice/notice_add.jsp';
+            window.location.href = 'template.jsp?pageGroup=notice&page=add&noticeNo=';
+            //                         template.jsp?pageGroup=notice&page=add
 
         });
     });
