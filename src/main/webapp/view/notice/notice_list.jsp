@@ -293,6 +293,8 @@
                         success: function (response) {
                             if (response === 'success') {
                                 $(this).closest('li').remove();
+                                alert("삭제 성공")
+                                window.location.href = '/template.jsp?pageGroup=notice&page=list';
                             } else {
                                 alert('삭제 실패');
                             }

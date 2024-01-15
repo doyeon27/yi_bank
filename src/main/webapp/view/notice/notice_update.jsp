@@ -82,7 +82,7 @@
                 success: function (response) {
 
                     alert(response);
-                    window.location.href = '/main/main.do#';
+                    window.location.href = '/template.jsp?pageGroup=notice&page=list';
                 },
                 error: function (xhr, status, error) {
                     // 실패했을 때의 처리

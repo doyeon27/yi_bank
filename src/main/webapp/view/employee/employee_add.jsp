@@ -197,6 +197,11 @@
             </div>
 
             <div class="form-group">
+                <label for="name">아이디:</label>
+                <input type="text" class="form-control" id="empId" name="empId">
+            </div>
+
+            <div class="form-group">
                 <label for="empTitle">직급:</label>
                 <input type="text" class="form-control" id="empTitle" name="empTitle">
             </div>
@@ -272,7 +277,7 @@
                 data: JSON.stringify(data),
                 success: function (data) {
                     alert("추가 되었습니다.")
-                    window.location.href = "/template.jsp?pageGroup=employee&page=add"
+                    window.location.href = '/template.jsp?pageGroup=employee&page=list';
                 }
             });
         } else {

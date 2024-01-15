@@ -262,7 +262,7 @@
     <p class="text-center"> - 직원 상세정보 확인은 해당 직원을 클릭하시면 됩니다</p>
 
     <div id="searchContainer">
-        <input type="text" class="form-control" name="search" id="search" placeholder="이름으로 검색">
+        <input type="text" class="form-control" name="search" id="search" placeholder="직원 이름 으로 검색">
     </div>
 
     <table id="employeeTable" class="table table-bordered table-hover">
