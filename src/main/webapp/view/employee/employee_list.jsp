@@ -293,7 +293,24 @@
             success: function (data) {
                 let userList = $('#employeeList');
 
+
+
                 if (data && data.length > 0) {
+
+                    let curPage = <%=request.getParameter("nextPage")%>;
+                    $('div#pagination-container').attr( 'count', data.length );
+                    // $('div#pagination-container').attr( 'page', $('div#pagination-container').attr( 'nextPage' ) );
+                    $('div#pagination-container').attr( 'page',curPage );
+
+                    // let curPage = parseInt( $('div#pagination-container').attr( 'page' ) ); // 현재 페이지 번호
+                    curPage = parseInt( curPage ) - 1;
+                    let views = parseInt( $('div#pagination-container').attr( 'views' )) ; // 한 페이지에 표시되는 리스트 수 (서버에서 결정)
+                    data = data.slice( views * curPage, views * curPage + views )
+                    // $(document).trigger("update_page");
+                    document.dispatchEvent( new Event( "update_page" ) );
+                }
+                if (data && data.length > 0) {
+
 
                     $('#employeeList').on('click', 'tr', function () {
                         let empId = $(this).find('td:eq(6)').text();
@@ -369,6 +386,40 @@
         });
     }
 </script>
+
+
+<style>
+    div#pagination-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    div#pagination-container button {
+        background-color: transparent; /* 배경색을 투명으로 설정 /
+        border: 1px solid #ccc; / 일반적인 테두리 스타일 /
+        color: #333; / 글자색 설정 /
+        padding: 5px 10px; / 내부 여백 설정 /
+        cursor: pointer; / 커서를 포인터로 변경하여 버튼임을 나타냄 */
+    }
+    div#pagination-container button.selected {
+        background-color: #4caf50
+    }
+    div#pagination-container button:hover {
+        background-color: #f0f0f0;
+    }
+</style>
+<div id="pagination-container" page="1" cols="5" views="7" count="30" before="" after="" onfunc="handlePageEvent" >
+</div>
+<script>
+    function handlePageEvent( strPage ) {
+        window.nextPage = strPage;
+        $('div#pagination-container').attr( 'nextPage', strPage );
+
+        // $("#search-expr-list [type=submit]").click();
+        window.location.href = '/template.jsp?pageGroup=employee&page=list&nextPage='+strPage;
+    }
+</script>
+<script src="/view/common/pagination.js"></script>
 
 </body>
 </html>
